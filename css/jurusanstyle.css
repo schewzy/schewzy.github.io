@@ -1,0 +1,796 @@
+/* Universal box-sizing to include padding and border in element's total width and height */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Font */
+.plus-jakarta-sans {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+/* Section Header */
+.bg-primary {
+    background-color: rgb(5, 56, 106) !important; 
+}
+
+.header-items {
+    font-size: 0.875rem; 
+    margin-right: 0; /* Removed negative margin */
+    padding: 0 20px; /* Added padding for spacing */
+    box-sizing: border-box;
+}
+
+.header-items a,
+.header-items span {
+    font-weight: bold;
+}
+
+.search-container {
+    position: relative;
+    width: 30px;
+    transition: width 0.4s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.search-container.expanded {
+    width: 180px; 
+}
+
+.search-input {
+    width: 100%;
+    padding-left: 8px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #000;
+    height: 28px;
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out;
+}
+
+.search-container.expanded .search-input {
+    opacity: 1; 
+}
+
+.search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon {
+    width: 16px; 
+    height: 16px;
+}
+
+/* Section Navbar */
+.navbar {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    z-index: 10;
+    padding: 0 20px; /* Consistent padding */
+    box-sizing: border-box;
+}
+
+.nav-link {
+    height: 50px;
+    right: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #05386A;
+    position: relative;
+    margin-top: 20px;
+    margin-right: -10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #05386A;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #FFA500;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.1s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-divider {
+    width: 40px;
+    background-color: white;
+    align-self: stretch; 
+    margin-top: 0; 
+    margin-bottom: 0; 
+}
+
+/* Dropdown Navbar */
+.dropnav {
+    position: relative;
+}
+
+.dropnav-content {
+    display: none;
+    position: fixed;
+    top: 120px; 
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 500px; 
+    background-color: rgba(5, 56, 106, 0.8);
+    z-index: 1;
+    display: flex;
+    color: white;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropnav:hover .dropnav-content,
+.dropnav-content:hover {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dropdown Navbar Section Kiri */
+.dropnav-left {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropnav-img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Dropdown Navbar Section Kanan */
+.dropnav-right {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropnav-links {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    align-items: stretch;
+}
+
+.dropnav-links a:hover {
+    color: #FFD700;
+}
+
+.dropnav-links div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.dropnav-links h3 {
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.dropnav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.dropnav-divider {
+    width: 2px;
+    background-color: white;
+    height: auto;
+    align-self: stretch; 
+    margin-top: 0; 
+    margin-bottom: 0; 
+}
+
+/* Section Headline */
+.headpage-section {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-links {
+    padding-top: 30px;
+    padding-left: 30px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.breadcrumb-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 200;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.headline-text h1 {
+    margin-top: -200px;
+    margin-left: 100px;
+}
+
+.headline {
+    color: white;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+/* Box Visi Misi */
+#boxvisimisi {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #f8f9fa;
+}
+
+#textBox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 550px;
+    height: 200px;
+    background-color: #004b7a;
+    color: white;
+}
+
+#textBox h5 {
+    font-weight: 500;
+    margin-top: 40px;
+}
+
+#textBox p {
+    text-align: justify;
+}
+
+/* Section Visi dan Misi */
+#visidanmisi {
+    height: 600px;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.section-box {
+    margin-left: 40px;
+    margin-top: 40px;
+    width: 48%;
+}
+
+.section-box:last-child {
+    margin-left: 10px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #004b7a;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.yellow-line {
+    width: 15%;
+    height: 3px;
+    background-color: #FBB513;
+    margin-bottom: 1rem;
+}
+
+.visimisi-divider {
+    width: 1.5px;
+    background-color: #adacac67;
+    height: 80%;
+    align-self: stretch; 
+    margin-top: 20px; 
+    margin-bottom: 0; 
+    margin-left: -30px;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+ol li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Section Kebijakan Mutu */
+#mutu {
+    height: 700px;
+}
+
+.mutuleft {
+    width: 60%;
+}
+
+.mutuleft img {
+    width: 100%;
+    height: 100%;
+}
+
+.muturight {
+    width: 40%;
+    padding: 20px;
+    padding-top: 80px;
+    background-color: #05386A;
+    overflow-y: auto;
+    font-size: 90%;
+}
+
+.muturight li {
+    padding-bottom: 20px;
+    font-weight: 300;
+}
+
+/* Section Kebijakan Anti Penyuapan */
+#penyuapan {
+    height: 600px;
+}
+
+.penyuapanleft {
+    width: 60%;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-color: #fff;
+    overflow-y: auto;
+    font-size: 100%;
+}
+
+.penyuapanleft h1 {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.penyuapanleft li {
+    padding-bottom: 20px;
+    font-weight: 300;
+    color: #000;
+}
+
+.penyuapanright {
+    width: 40%;
+}
+
+.penyuapanright img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Section Tujuan */
+#tujuan {
+    height: 850px;
+    padding: 20px;
+    padding-top: 100px;
+    position: relative;
+}
+
+.tujuan-yellow {
+    background-color: #FBB513;
+}
+
+.tujuan-blue {
+    background-color: #004b7a;
+}
+
+.tujuan-blue p {
+    color: white;
+}
+
+.tujuan-yellow p {
+    color: black;
+}
+
+.tujuan-column {
+    width: 25%;
+    padding: 15px;
+    margin-left: 20px;
+    margin-top: 20px;
+    height: 200px;
+}
+
+.tujuan-title {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.tujuan-content {
+    margin-bottom: 20px;
+    color: white;
+    font-weight: 200;
+}
+
+.tujuan-content li {
+    list-style-type: none;
+}
+
+.tujuan-content li:before {
+    content: "\2022";
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.tujuan-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+#container_tujuan {
+    width: 100%;
+}
+
+/* Setion Footer */
+footer {
+    background-color: #002855;
+    padding: 40px 0;
+    color: #fff;
+    font-size: 14px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+footer h5, footer p, footer a, footer ul li, footer ul li a {
+    color: #fff;
+}
+footer h5 {
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+footer ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+footer a:hover {
+    color: #ddd;
+}
+
+footer ul li img {
+    margin-right: 10px;
+}
+
+footer .social-links a img {
+    margin-right: 10px;
+}
+
+footer .social-links a:hover {
+    opacity: 0.8;
+}
+
+footer .visitor-stats p {
+    line-height: 1.6;
+    margin: 0;
+}
+
+footer .visitor-stats a {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.middle-line {
+    height: 1px;
+    width: 50%;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+footer p.copyright-text {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.tengah {
+    align-items: start;
+}
+
+
+.body-teknika {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.text-content {
+    flex: 1;
+    margin: 0 auto;
+}
+
+.image {
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column; /* Changed to column to stack the underline below the title */
+    align-items: flex-start; /* Aligns content to the start */
+    gap: 5px; /* Space between title and underline */
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #05386A;
+}
+
+.underline {
+    width: 50px; /* Set a smaller width for the underline */
+    height: 3px; /* Adjust height for a thinner line */
+    background-color: #FBB513; /* Change color to yellow */
+    margin-top: 5px; /* Space between title and underline */
+}
+
+.description {
+    margin-top: 10px;
+}
+
+/* Info Section (Vision & Mission) */
+.info-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.box {
+    flex: 1;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #F9FAFB;
+}
+
+.header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #05386A;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+/* Education Duration Section */
+.education-duration {
+    max-width: 600px;
+    padding: 20px;
+    margin-left: 7%; /* Adjust this value to add space from the left edge */
+}
+
+.duration-box {
+    display: inline-block;
+    text-align: left;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.education-system {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.system-container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}
+
+.system-image {
+    flex: 1;
+    min-width: 200px; /* Adjust based on logo size */
+    margin-right: 20px;
+}
+
+.system-image img {
+    width: 100%;
+    height: auto;
+}
+
+.system-details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.text {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .education-system {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .system-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .system-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
+
+
+/* Certificate Info Section */
+.container-certificate {
+    text-align: center;
+    padding: 20px;
+}
+
+.certificate-info {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9FAFB;
+}
+
+/* Career Prospects Section */
+.career-prospects-wrapper {
+    text-align: center;
+    padding: 20px;
+}
+
+.career-prospects-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.career-prospects-title-section {
+    margin-bottom: 20px;
+}
+
+.career-prospects-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.career-prospects-column {
+    flex: 1;
+    min-width: 250px;
+    padding: 10px;
+}
+
+.career-prospects-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+    color: #05386A;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.name-item {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.name-divider {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .body-teknika {
+        flex-direction: column;
+    }
+
+    .info-section {
+        flex-direction: column;
+    }
+
+    .education-system {
+        flex-direction: column;
+    }
+
+    .career-prospects-content {
+        flex-direction: column;
+    }
+
+    .main-container {
+        flex-direction: column;
+    }
+}
+
+/* Optional: Custom styles for tabs */
+.nav-tabs .nav-link {
+    color: #002147;
+}
+
+.nav-tabs .nav-link.active {
+    color: #ffffff;
+    background-color: #ffffff;
+}

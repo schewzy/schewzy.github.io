@@ -1,0 +1,745 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Font */
+.plus-jakarta-sans{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+/* Section Header */
+.bg-primary {
+    background-color: rgb(5, 56, 106) !important; 
+}
+
+.header-items {
+    font-size: 0.875rem; 
+    margin-right: 0; /* Removed negative margin */
+    padding: 0 20px; /* Added padding for spacing */
+    box-sizing: border-box;
+}
+
+.header-items a,
+.header-items span {
+    font-weight: bold;
+}
+
+.search-container {
+    position: relative;
+    width: 30px;
+    transition: width 0.4s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.search-container.expanded {
+    width: 180px; 
+}
+
+.search-input {
+    width: 100%;
+    padding-left: 8px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #000;
+    height: 28px;
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out;
+}
+
+.search-container.expanded .search-input {
+    opacity: 1; 
+}
+
+.search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon {
+    width: 16px; 
+    height: 16px;
+}
+
+/* Section Navbar */
+.navbar {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    z-index: 10;
+    padding: 0 20px; /* Consistent padding */
+    box-sizing: border-box;
+}
+
+.nav-link {
+    height: 50px;
+    right: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #05386A;
+    position: relative;
+    margin-top: 20px;
+    margin-right: -10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #05386A;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #FFA500;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.1s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-divider {
+    width: 40px;
+    background-color: white;
+    align-self: stretch; 
+    margin-top: 0; 
+    margin-bottom: 0; 
+}
+
+/* Dropdown Navbar */
+.dropnav {
+    position: relative;
+}
+
+.dropnav-content {
+    display: none;
+    position: fixed;
+    top: 120px; 
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 500px; 
+    background-color: rgba(5, 56, 106, 0.8);
+    z-index: 1;
+    display: flex;
+    color: white;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropnav:hover .dropnav-content,
+.dropnav-content:hover {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dropdown Navbar Section Kiri */
+.dropnav-left {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropnav-img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Dropdown Navbar Section Kanan */
+.dropnav-right {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropnav-links {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    align-items: stretch;
+}
+
+.dropnav-links a:hover {
+    color: #FFD700;
+}
+
+.dropnav-links div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.dropnav-links h3 {
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.dropnav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.dropnav-divider {
+    width: 2px;
+    background-color: white;
+    height: auto;
+    align-self: stretch; 
+    margin-top: 0; 
+    margin-bottom: 0; 
+}
+
+/* Section Headline */
+.headpage-section {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-links {
+    padding-top: 30px;
+    padding-left: 30px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.breadcrumb-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 200;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.headline-text h1 {
+    margin-top: -200px;
+    margin-left: 100px;
+}
+
+.headline {
+    color: white;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+/* Box Visi Misi */
+#boxvisimisi {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #f8f9fa; /* Background color for the container */
+}
+
+#textBox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 550px;
+    height: 200px;
+    background-color: #004b7a;
+    color: white;
+}
+
+#textBox h5{
+    font-weight: 500;
+    margin-top: 40px;
+}
+
+#textBox p{
+    text-align: justify;
+}
+/* Section Visi dan Misi */
+#visidanmisi {
+    height: 600px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.section-box {
+    margin-left: 40px;
+    margin-top: 40px;
+    width: 48%;
+}
+
+.section-box:last-child{
+    margin-left: 10px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #004b7a;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.yellow-line {
+    width: 15%;
+    height: 3px;
+    background-color: #FBB513;
+    margin-bottom: 1rem;
+}
+
+.visimisi-divider {
+    width: 1.5px;
+    background-color: #adacac67;
+    height: 80%;
+    align-self: stretch; 
+    margin-top: 20px; 
+    margin-bottom: 0; 
+    margin-left: -30px;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+ol li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+/* Section Kebijakan Mutu */
+#mutu {
+    height: 700px;
+}
+
+.mutuleft {
+    width: 60%;
+}
+.mutuleft img {
+    width: 100%;
+    height: 100%;
+}
+
+.muturight{
+    width: 40%;
+    padding: 20px;
+    padding-top: 80px;
+    background-color: #05386A;
+    overflow-y: auto;
+    font-size: 90%;
+}
+
+.muturight li{
+    padding-bottom: 20px;
+    font-weight: 300;
+}
+/* Section Kebijakan Anti Penyuapan */
+#penyuapan {
+    height: 600px;
+}
+
+.penyuapanleft{
+    width: 60%;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-color: #fff;
+    overflow-y: auto;
+    font-size: 100%;
+}
+.penyuapanleft h1 {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.penyuapanleft li{
+    padding-bottom: 20px;
+    font-weight: 300;
+    color: #000;
+}
+
+.penyuapanright {
+    width: 40%;
+}
+.penyuapanright img {
+    width: 100%;
+    height: 100%;
+}
+/* Section Tujuan */
+#tujuan {
+    height: 850px;
+    padding: 20px;
+    padding-top: 100px;
+    position: relative;
+}
+
+.tujuan-yellow {
+    background-color: #FBB513;
+    height: 100px;
+    width: 400px;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    z-index: 2;
+}
+
+.tujuan-blue {
+    background-color: #00489E;
+    height: 100px;
+    width: 600px;
+    position: absolute;
+    top: 70px;
+    left: -20px;
+    z-index: 1;
+}
+
+.tujuan-title {
+    margin-top: 225px;
+    position: relative;
+    display: inline-block;
+    color: #004a99;
+}
+
+.tujuan-title::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #FBB513;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.tujuan-content {
+    padding-left: 100px;
+}
+
+.tujuan-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.tujuan-list li {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+/* Garis Kanan Bawah */
+.garis {
+    width: 80px;
+    height: 2px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+
+.garis-kuning {
+    margin-left: 81%;
+    background-color: #FFA500;
+    width: 3000px;
+}
+
+.garis-biru {
+    margin-top: -5px;
+    margin-left: 75%;
+    background-color: #04498E;
+    width: 3000px;
+}
+
+/* Setion Footer */
+footer {
+    background-color: #002855;
+    padding: 40px 0;
+    color: #fff;
+    font-size: 14px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+footer h5, footer p, footer a, footer ul li, footer ul li a {
+    color: #fff;
+}
+footer h5 {
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+footer ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+footer a:hover {
+    color: #ddd;
+}
+
+footer ul li img {
+    margin-right: 10px;
+}
+
+footer .social-links a img {
+    margin-right: 10px;
+}
+
+footer .social-links a:hover {
+    opacity: 0.8;
+}
+
+footer .visitor-stats p {
+    line-height: 1.6;
+    margin: 0;
+}
+
+footer .visitor-stats a {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.middle-line {
+    height: 1px;
+    width: 50%;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+footer p.copyright-text {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.tengah {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.vm-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.vm-container {
+    display: flex;
+    padding: 10px;
+    width: 80%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+.box {
+    flex: 1;
+    padding: 15px;
+    margin: 5px;
+    border: 0.5px solid #c2c2c2;
+    box-sizing: border-box;
+}
+.box h2 {
+    font-weight: bold;
+    color: #00438a;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.box ol {
+    padding-left: 20px;
+}
+.box ol li {
+    margin-bottom: 10px;
+}
+
+/* Lama Pendidikan */
+.lp-container {
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.lp-container h2 {
+    font-size: 25px;
+    font-weight: 550;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: -50px;
+    margin-bottom: 5px;
+    color: #05386A;
+}
+.lp-container p {
+    margin-left: -50px;
+    padding: 0;
+}
+.content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.circle-image {
+    flex: 1;
+    text-align: center;
+}
+.circle-image img {
+    width: 130%;
+    margin-left: -70px;
+}
+.honor   {
+    flex: 2;
+    padding-left: 20px;
+}
+.honor ul {
+    list-style-type: none;
+    padding: 0;
+}
+.honor ul li {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.honor ul li img {
+    display: block;
+    margin-right: 10px;
+    width: 80px;
+}
+
+.lulus-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -300px;
+}
+
+.lulus-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 650px;
+}
+
+.lulus ol li {
+    font-size: 15px;
+}
+
+.container {
+    flex: 2;
+    width: 90%;
+    max-width: 1200px;
+    align-items: center;
+    margin-top: 130px;
+}
+
+.title {
+    color: #1d3e72;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #f2a900;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.career-prospects {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-column, .right-column {
+    width: 10;
+}
+
+.career-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.icon img {
+    border-radius: 100%;
+}
+
+p {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+}
+
+/* Custom Styles for Better Alignment */
+/* Custom Styles for Better Table Alignment */
+.container-fluid {
+    max-width: 1131px;
+    margin: auto;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    table-layout: fixed; /* Ensures table cells maintain a consistent width */
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.table thead th, 
+.table td {
+    vertical-align: middle;
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: gray;
+    max-width: 200px; /* Set a max width for each cell */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." to cut off text that doesn't fit */
+}
+
+.table-bordered th, 
+.table-bordered td {
+    border-width: 2px;
+    border-color: #dee2e6;
+}
+
+.table ol {
+    padding-left: 1.2rem;
+}
+
+.table ol li {
+    margin-bottom: 0.5rem;
+}
+
+.gray {
+    color: rgb(138, 138, 138);
+}
