@@ -1,0 +1,1454 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Boostrap CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Font Google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+    <title>Nautika</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <style>
+        /* Universal box-sizing to include padding and border in element's total width and height */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Font */
+.plus-jakarta-sans {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+/* Section Header */
+.bg-primary {
+    background-color: rgb(5, 56, 106) !important; 
+}
+
+.header-items {
+    font-size: 0.875rem; 
+    margin-right: 0; /* Removed negative margin */
+    padding: 0 20px; /* Added padding for spacing */
+    box-sizing: border-box;
+}
+
+.header-items a,
+.header-items span {
+    font-weight: bold;
+}
+
+.search-container {
+    position: relative;
+    width: 30px;
+    transition: width 0.4s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.search-container.expanded {
+    width: 180px; 
+}
+
+.search-input {
+    width: 100%;
+    padding-left: 8px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #000;
+    height: 28px;
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out;
+}
+
+.search-container.expanded .search-input {
+    opacity: 1; 
+}
+
+.search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon {
+    width: 16px; 
+    height: 16px;
+}
+
+/* Section Navbar */
+.navbar {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    z-index: 10;
+    padding: 0 20px; /* Consistent padding */
+    box-sizing: border-box;
+}
+
+.nav-link {
+    height: 50px;
+    right: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #05386A;
+    position: relative;
+    margin-top: 20px;
+    margin-right: -10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #05386A;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #FFA500;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.1s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-divider {
+    width: 40px;
+    background-color: white;
+    align-self: stretch; 
+    margin-top: 0; 
+    margin-bottom: 0; 
+}
+
+/* Dropdown Navbar */
+.dropnav {
+    position: relative;
+}
+
+.dropnav-content {
+    display: none;
+    position: fixed;
+    top: 120px; 
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 500px; 
+    background-color: rgba(5, 56, 106, 0.8);
+    z-index: 1;
+    display: flex;
+    color: white;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropnav:hover .dropnav-content,
+.dropnav-content:hover {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dropdown Navbar Section Kiri */
+.dropnav-left {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropnav-img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Dropdown Navbar Section Kanan */
+.dropnav-right {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropnav-links {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    align-items: stretch;
+}
+
+.dropnav-links a:hover {
+    color: #FFD700;
+}
+
+.dropnav-links div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.dropnav-links h3 {
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.dropnav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.dropnav-divider {
+    width: 2px;
+    background-color: white;
+    height: auto;
+    align-self: stretch; 
+    margin-top: 0; 
+    margin-bottom: 0; 
+}
+
+/* Section Headline */
+.headpage-section {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-links {
+    padding-top: 30px;
+    padding-left: 30px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.breadcrumb-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 200;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.headline-text h1 {
+    margin-top: -200px;
+    margin-left: 100px;
+}
+
+.headline {
+    color: white;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+/* Box Visi Misi */
+#boxvisimisi {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #f8f9fa;
+}
+
+#textBox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 550px;
+    height: 200px;
+    background-color: #004b7a;
+    color: white;
+}
+
+#textBox h5 {
+    font-weight: 500;
+    margin-top: 40px;
+}
+
+#textBox p {
+    text-align: justify;
+}
+
+/* Section Visi dan Misi */
+#visidanmisi {
+    height: 600px;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.section-box {
+    margin-left: 40px;
+    margin-top: 40px;
+    width: 48%;
+}
+
+.section-box:last-child {
+    margin-left: 10px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #004b7a;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.yellow-line {
+    width: 15%;
+    height: 3px;
+    background-color: #FBB513;
+    margin-bottom: 1rem;
+}
+
+.visimisi-divider {
+    width: 1.5px;
+    background-color: #adacac67;
+    height: 80%;
+    align-self: stretch; 
+    margin-top: 20px; 
+    margin-bottom: 0; 
+    margin-left: -30px;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+ol li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Section Kebijakan Mutu */
+#mutu {
+    height: 700px;
+}
+
+.mutuleft {
+    width: 60%;
+}
+
+.mutuleft img {
+    width: 100%;
+    height: 100%;
+}
+
+.muturight {
+    width: 40%;
+    padding: 20px;
+    padding-top: 80px;
+    background-color: #05386A;
+    overflow-y: auto;
+    font-size: 90%;
+}
+
+.muturight li {
+    padding-bottom: 20px;
+    font-weight: 300;
+}
+
+/* Section Kebijakan Anti Penyuapan */
+#penyuapan {
+    height: 600px;
+}
+
+.penyuapanleft {
+    width: 60%;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-color: #fff;
+    overflow-y: auto;
+    font-size: 100%;
+}
+
+.penyuapanleft h1 {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.penyuapanleft li {
+    padding-bottom: 20px;
+    font-weight: 300;
+    color: #000;
+}
+
+.penyuapanright {
+    width: 40%;
+}
+
+.penyuapanright img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Section Tujuan */
+#tujuan {
+    height: 850px;
+    padding: 20px;
+    padding-top: 100px;
+    position: relative;
+}
+
+.tujuan-yellow {
+    background-color: #FBB513;
+}
+
+.tujuan-blue {
+    background-color: #004b7a;
+}
+
+.tujuan-blue p {
+    color: white;
+}
+
+.tujuan-yellow p {
+    color: black;
+}
+
+.tujuan-column {
+    width: 25%;
+    padding: 15px;
+    margin-left: 20px;
+    margin-top: 20px;
+    height: 200px;
+}
+
+.tujuan-title {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.tujuan-content {
+    margin-bottom: 20px;
+    color: white;
+    font-weight: 200;
+}
+
+.tujuan-content li {
+    list-style-type: none;
+}
+
+.tujuan-content li:before {
+    content: "\2022";
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.tujuan-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+#container_tujuan {
+    width: 100%;
+}
+
+/* Setion Footer */
+footer {
+    background-color: #002855;
+    padding: 40px 0;
+    color: #fff;
+    font-size: 14px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+footer h5, footer p, footer a, footer ul li, footer ul li a {
+    color: #fff;
+}
+footer h5 {
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+footer ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+footer a:hover {
+    color: #ddd;
+}
+
+footer ul li img {
+    margin-right: 10px;
+}
+
+footer .social-links a img {
+    margin-right: 10px;
+}
+
+footer .social-links a:hover {
+    opacity: 0.8;
+}
+
+footer .visitor-stats p {
+    line-height: 1.6;
+    margin: 0;
+}
+
+footer .visitor-stats a {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.middle-line {
+    height: 1px;
+    width: 50%;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+footer p.copyright-text {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.tengah {
+    align-items: start;
+}
+
+
+.body-teknika {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.text-content {
+    flex: 1;
+    margin: 0 auto;
+}
+
+.image {
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column; /* Changed to column to stack the underline below the title */
+    align-items: flex-start; /* Aligns content to the start */
+    gap: 5px; /* Space between title and underline */
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #05386A;
+}
+
+.underline {
+    width: 50px; /* Set a smaller width for the underline */
+    height: 3px; /* Adjust height for a thinner line */
+    background-color: #FBB513; /* Change color to yellow */
+    margin-top: 5px; /* Space between title and underline */
+}
+
+.description {
+    margin-top: 10px;
+}
+
+/* Info Section (Vision & Mission) */
+.info-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.box {
+    flex: 1;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #F9FAFB;
+}
+
+.header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #05386A;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+/* Education Duration Section */
+.education-duration {
+    max-width: 600px;
+    padding: 20px;
+    margin-left: 7%; /* Adjust this value to add space from the left edge */
+}
+
+.duration-box {
+    display: inline-block;
+    text-align: left;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.education-system {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.system-container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}
+
+.system-image {
+    flex: 1;
+    min-width: 200px; /* Adjust based on logo size */
+    margin-right: 20px;
+}
+
+.system-image img {
+    width: 100%;
+    height: auto;
+}
+
+.system-details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.text {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .education-system {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .system-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .system-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
+
+
+/* Certificate Info Section */
+.container-certificate {
+    text-align: center;
+    padding: 20px;
+}
+
+.certificate-info {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9FAFB;
+}
+
+/* Career Prospects Section */
+.career-prospects-wrapper {
+    text-align: center;
+    padding: 20px;
+}
+
+.career-prospects-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.career-prospects-title-section {
+    margin-bottom: 20px;
+}
+
+.career-prospects-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.career-prospects-column {
+    flex: 1;
+    min-width: 250px;
+    padding: 10px;
+}
+
+.career-prospects-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.name-item {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.name-divider {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .body-teknika {
+        flex-direction: column;
+    }
+
+    .info-section {
+        flex-direction: column;
+    }
+
+    .education-system {
+        flex-direction: column;
+    }
+
+    .career-prospects-content {
+        flex-direction: column;
+    }
+
+    .main-container {
+        flex-direction: column;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <header class="bg-primary py-2">
+      <div class="container">
+          <div class="d-flex justify-content-end align-items-center header-items">
+              <a href="#" class="text-white me-3 text-decoration-none small">SiPITUNG</a>
+              <span class="text-white small">|</span>
+              <a href="#" class="text-white mx-3 text-decoration-none small">FAQ</a>
+              <span class="text-white small">|</span>
+              <div class="search-container mx-3">
+                  <input type="text" class="search-input form-control" placeholder="Search...">
+                  <button class="btn search-btn">
+                      <img src="assets/search bar.png" alt="Search Icon" class="search-icon">
+                  </button>
+              </div>
+              <span class="text-white small">|</span>
+              <div class="dropdown ms-3">
+                  <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle small" id="languageDropdownLang" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="https://flagcdn.com/w20/id.png" alt="Indonesia Flag" width="20" height="20" class="rounded-circle me-2">
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownLang">
+                      <li><a class="dropdown-item" href="#">Bahasa Indonesia</a></li>
+                      <li><a class="dropdown-item" href="#">English</a></li>
+                  </ul>
+              </div>
+      </div>
+  </header>
+  <!-- Section NavBar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+          <a class="navbar-brand" href="#">
+              <img src="assets/Logo.png" alt="Logo" height="80" width="280">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="default.html">Tentang</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarTentang.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">Sambutan Ketua</a>
+                                      <a href="#">Visi, Misi & Tujuan</a>
+                                      <a href="#">Profil</a>
+                                      <a href="#">Struktur Organisasi</a>
+                                      <a href="#">Sejarah</a>
+                                      <a href="#">Logo STIP</a>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Profil Manajemen</a>
+                                      <a href="#">Mars & Himne</a>
+                                      <a href="#">Aset STIP</a>
+                                      <a href="#">Piagam Penghargaan</a>
+                                      <a href="#">LAPTAH & LKIP</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">Akademik</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarAkademik.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">Kalender Akademik</a>
+                                      <h3>
+                                          <a href="#">Diploma IV</a>
+                                          <a href="#">Diklat Penjenjangan Keahlian Pelaut(Upgrading)</a>
+                                          <a href="#">Kalender Diklat Pemutakhiran</a>
+                                          <a href="#">Kalender Program Kerjasama</a>
+                                          <a href="#">Diklat Keterampilan Pelaut(ShortCourse)</a>
+                                      </h3>
+                                      <a href="#">Biaya Akademik</a>
+                                      <h3>
+                                          <a href="#">Biaya Diklat Pembentukan Diploma-IV</a>
+                                          <a href="#">Biaya Diklat Penjenjangan Keahlian Pelaut(Upgrading)</a>
+                                          <a href="#">Biaya Diklat Pemutakhiran(Updating)</a>
+                                          <a href="#">Biaya Diklat Keterampilan Pelaut</a>
+                                          <a href="#">Biaya PUKP Pasca Prala</a>
+                                          <a href="#">Biaya Sewa Fasilitas</a>
+                                          <a href="#">Biaya Sewa Fasilitas</a>
+                                          <a href="#">Biaya RPL Tipe A</a>
+                                      </h3>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Dosen STIP</a>
+                                      <a href="#">Clearing in/Clearing Out</a>
+                                      <a href="#">Stampbook Online Paca Prala</a>
+                                      <h3>
+                                          <a href="#">Nautika</a>
+                                          <a href="#">KALK</a>
+                                      </h3>
+                                      <a href="#">PMB Magister Terapan</a>
+                                      <a href="#">Hasil Ujian Keahlian</a>
+                                      <h3>
+                                          <a href="#">Tahun 2021</a>
+                                          <a href="#">Tahun 2022</a>
+                                          <a href="#">Tahun Keahlian</a>
+                                      </h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">Fasilitas</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarFasilitas.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">Gedung STIP Jakarta</a>
+                                      <a href="#">Simulator & Lab</a>
+                                      <a href="#">Kapal Latih</a>
+                                      <a href="#">Bank</a>
+                                      <a href="#">Rumah Ibadah</a>
+                                      <a href="#">Bus Kampus</a>
+                                      <a href="#">Kantin & Ruang Makan</a>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Sarana Olahraga</a>
+                                      <a href="#">Klinik</a>
+                                      <a href="#">Jaringan Internet & Wireless</a>
+                                      <a href="#">Asrama</a>
+                                      <a href="#">Auditorium</a>
+                                      <a href="#">Ruang Audio Visual</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">PPID</a>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">E-Learning</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarE-Learning.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">E-Learning Edlink</a>
+                                      <a href="#">Tutorial SIAKAD</a>
+                                      <a href="#">Tutorial E-Learning Edlink D-IV</a>
+                                      <a href="#">Tutorial E-Learning Edlink Diklat Pelaut</a>
+                                      <a href="#">Rumah Tutorial E-Learning Edlink Peserta RPL</a>
+                                      <a href="#">Bus Kampus</a>
+                                      <a href="#">Kantin & Ruang Makan</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">SIPENCATAR</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarSIPENCATAR.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">SIPENCATAR MANDIRI</a>
+                                      <h3>
+                                          <a href="#">Pendaftaran SIPENCATAR Mandiri</a>
+                                          <a href="#">Panduan Pendaftaran SIPENCATAR Jalur Mandiri</a>
+                                      </h3>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">SIPENCATAR POLA PEMBIBITAN</a>
+                                      <h3>
+                                          <a href="#">Pendaftaran</a>
+                                          <a href="#">Pengumuman</a>
+                                      </h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">P3M</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarSIPENCATAR.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">Pendidikan</a>
+                                      <h3>
+                                          <a href="#">Teknika</a>
+                                          <a href="#">Nautika</a>
+                                          <a href="#">KALK</a>
+                                      </h3>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Penelitian</a>
+                                      <h3>
+                                          <a href="#">Penelitian Tahun 2006</a>
+                                          <a href="#">Penelitian Tahun 2007</a>
+                                          <a href="#">Penelitian Tahun 2009</a>
+                                          <a href="#">Penelitian Tahun 2018</a>
+                                          <a href="#">Penelitian Tahun 2019</a>
+                                      </h3>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Pengabdian</a>
+                                      <h3>
+                                          <a href="#">Penelitian Tahun 2019</a>
+                                          <a href="#">Penelitian Tahun 2020</a>
+                                          <a href="#">Penelitian Tahun 2023</a>
+                                      </h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const navItems = document.querySelectorAll('.nav-item.dropnav');
+    let dropdownSaatIni = null;
+
+    navItems.forEach(item => {
+        const dropdown = item.querySelector('.dropnav-content');
+
+        if (dropdown) {
+            item.addEventListener('mouseenter', function () {
+                if (dropdownSaatIni && dropdownSaatIni !== dropdown) {
+                    dropdownSaatIni.classList.remove('show');
+                }
+                dropdown.style.display = 'flex';
+                setTimeout(() => {
+                    dropdown.style.opacity = '1';
+                    dropdown.style.transform = 'translateY(0)';
+                }, 10);
+                dropdownSaatIni = dropdown;
+            });
+
+            item.addEventListener('mouseleave', function (e) {
+                if (!dropdown.contains(e.relatedTarget)) {
+                    dropdown.style.opacity = '0';
+                    dropdown.style.transform = 'translateY(-20px)';
+                    setTimeout(() => {
+                        dropdown.style.display = 'none';
+                    }, 300);
+                    dropdownSaatIni = null;
+                }
+            });
+
+            dropdown.addEventListener('mouseenter', function () {
+                dropdown.style.opacity = '1';
+                dropdown.style.transform = 'translateY(0)';
+                dropdownSaatIni = dropdown;
+            });
+
+            dropdown.addEventListener('mouseleave', function (e) {
+                if (!item.contains(e.relatedTarget)) {
+                    dropdown.style.opacity = '0';
+                    dropdown.style.transform = 'translateY(-20px)';
+                    setTimeout(() => {
+                        dropdown.style.display = 'none';
+                    }, 300);
+                    dropdownSaatIni = null;
+                }
+            });
+        } else {
+            item.addEventListener('mouseenter', function () {
+                if (dropdownSaatIni) {
+                    dropdownSaatIni.style.opacity = '0';
+                    dropdownSaatIni.style.transform = 'translateY(-20px)';
+                    setTimeout(() => {
+                        dropdownSaatIni.style.display = 'none';
+                    }, 300);
+                    dropdownSaatIni = null;
+                }
+            });
+        }
+    });
+
+    // Scroll Menutup Dropdown Navbar
+    window.addEventListener('scroll', function () {
+        if (dropdownSaatIni) {
+            dropdownSaatIni.style.opacity = '0';
+            dropdownSaatIni.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+                dropdownSaatIni.style.display = 'none';
+            }, 300); 
+            dropdownSaatIni = null;
+        }
+    });
+});
+  </script>
+
+<!-- Section Headline -->
+<section class="headpage-section position-relative">
+    <!-- Background Image -->
+    <img src="assets/STIP.png" alt="Background Image" class="img-fluid w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover;">
+
+    <!-- Overlay Content -->
+    <div class="container h-100 position-relative">
+        <div class="row h-100">
+            <div class="col-12 d-flex flex-column justify-content-between">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb-links">
+                    <a href="#">Beranda</a> / <a href="#">Program Pendidikan</a> / <a href="#">Nautika</a>
+                </div>
+                <!-- Headline Text -->
+                <div class="headline-text">
+                    <h1 class="headline">Nautika</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="body-teknika">
+    <div class="text-content">
+        <div class="title-container">
+            <div class="title">Jurusan Nautika</div>
+            <div class="underline"></div>
+        </div>
+        <div class="description">
+            Jurusan Nautika Pelayaran merupakan  jenis jurusan yang berhubungan dengan bidang kelautan dan pelayaran. Jurusan ini bertujuan untuk melatih dan mengajarkan mahasiswa tentang navigasi, pengoperasian kapal, dan manajemen pelayaran. Lulusan dari jurusan Nautika Pelayaran biasanya menjadi perwira navigasi di kapal-kapal besar seperti kapal kargo, kapal penumpang, atau kapal tanker. Mereka bertanggung jawab untuk memastikan keselamatan pelayaran, perencanaan rute, dan pengelolaan operasional kapal.
+        </div>
+    </div>
+    <img class="image" src="assets/Logo_Nautika.png" alt="Nautika">
+</div>
+
+<div class="info-section">
+    <div class="box vision">
+        <div class="header">Visi</div>
+        <div class="underline"></div>
+        <div class="content">
+            Tahun 2030 Jurusan Nautika menjadi jurusan yang dapat menghasilkan sumber daya manusia yang ahli di bidang Nautika yang unggul dan bertaraf internasional, berdaya saing tinggi, serta beriman dan bertaqwa kepada Tuhan Yang Maha Esa.
+        </div>
+    </div>
+    <div class="box mission">
+        <div class="header">Misi</div>
+        <div class="underline"></div>
+        <div class="content">         
+        Meningkatkan pelaksanaan pendidikan di bidang Nautika untuk menyiapkan tenaga profesional di bidang Nautika yang bertaraf Nasional dan Internasional.
+        <br>Meningkatkan pelaksanaan penelitian terapan di bidang Nautika yang mendukung bidang teknologi pelayaran yang bermanfaat bagi mitra industri kemaritiman.
+        <br>Meningkatkan penyelenggaraan pengabdian kepada masyarakat maupun industry pelayaran, pemanfaatan hasil pendidikan di bidang pelayaran, penelitian di bidang pelayaran untuk kesejahteraan dan kemakmuran masyarakat secara luas.
+        <br>Meningkatkan pelaksanaan Tatakelola Pendidikan di bidang Nautika yang Transparan dan Akuntabilitas.
+        </div>
+    </div>
+</div>
+
+<div class="education-duration">
+    <div class="duration-box">
+        <div class="header">Lama Pendidikan</div>
+        <div class="underline"></div>
+        <div class="content">Masa pendidikan ditempuh 8 - 14 semester</div>
+    </div>
+</div>
+
+<div class="education-system">
+    <div class="system-container">
+        <div class="system-image">
+            <img src="assets/sistempengajarannautika.png" alt="Sistem Pengajaran">
+        </div>
+        <div class="system-details">
+            <div class="detail">
+                <img class="icon" src="assets/honor.png" alt="Icon">
+                <div class="text">Semua peserta didik diasramakan dan disebut Taruna / Taruni STIP Jakarta</div>
+            </div>
+            <div class="detail">
+                <img class="icon" src="assets/honor.png" alt="Icon">
+                <div class="text">Pendidikan menggunakan sistem kredit semester (SKS) dengan beban studi 152 – 155 sks</div>
+            </div>
+            <div class="detail">
+                <img class="icon" src="assets/honor.png" alt="Icon">
+                <div class="text">Semester 1, 2, 3 dan 4 pelajaran teori dan praktek laboratorium di kampus</div>
+            </div>
+            <div class="detail">
+                <img class="icon" src="assets/honor.png" alt="Icon">
+                <div class="text">Semester 5 dan 6 praktek di kapal-kapal niaga selama 1 (satu) tahun penuh</div>
+            </div>
+            <div class="detail">
+                <img class="icon" src="assets/honor.png" alt="Icon">
+                <div class="text">Semester 7 dan 8, pelajaran teori dan praktek laboratorium di kampus dilengkapi dengan materi kuliah dengan Sistem E-learning.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-certificate">
+    <div class="certificate-info">
+        <div class="certificate-info-inner">
+            <div class="certificate-info-title">
+                Peserta yang dinyatakan LULUS/TAMAT STIP akan diberi ijazah sebagai berikut:
+            </div>
+            <div class="certificate-info-details">
+                1. Ijazah Diploma IV dengan gelar S.SiT (Sarjana Sains Terapan)<br />
+                2. Sertifikat Ahli Teknika Tingkat III (ATT - III)
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="career-prospects-wrapper">
+    <div class="career-prospects-container">
+        <div class="career-prospects-title-section">
+            <div class="header">Prospek Karir</div>
+            <div class="underline"></div>
+        </div>
+        <div class="career-prospects-content">
+            <div class="career-prospects-column">
+                <div class="career-prospects-item">
+                    <img class="icon" src="assets/karir.png">
+                    <span>Perwira diatas kapal milik perusahaan Pelayaran Asing dan Domestik</span>
+                </div>
+                <div class="career-prospects-item">
+                    <img class="icon" src="assets/karir.png">
+                    <span>Industri Pelayaran</span>
+                </div>
+                <div class="career-prospects-item">
+                    <img class="icon" src="assets/karir.png">
+                    <span>On Shore/Off Shore (Pengeboran Minyak)</span>
+                </div>
+                <div class="career-prospects-item">
+                    <img class="icon" src="assets/karir.png">
+                    <span>Instansi Pemerintah</span>
+                </div>
+                <div class="career-prospects-item">
+                    <img class="icon" src="assets/karir.png">
+                    <span>TNI/POLRI</span>
+                </div>
+            </div>
+            <div class="career-prospects-column">
+                <div class="career-prospects-item">
+                    <img class="icon" src="assets/karir.png">
+                    <span>Biro Klasifikasi Asing dan Domestik</span>
+                </div>
+                <div class="career-prospects-item">
+                    <img class="icon" src="assets/karir.png">
+                    <span>Marine Surveyor</span>
+                </div>
+                <div class="career-prospects-item">
+                    <img class="icon" src="assets/karir.png">
+                    <span>Auditor MARPOL,ISM CODE,ISPS CODE</span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="education-duration">
+    <div class="duration-box">
+        <div class="header">Dosen Jurusan Nautika</div>
+        <div class="underline"></div>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="left-column">
+        <div class="name-item">EKA BUDI TJAHJONO</div>
+        <div class="name-divider"></div>
+        <div class="name-item">M. YUSUF</div>
+        <div class="name-divider"></div>
+        <div class="name-item">VIDYA SELASDINI</div>
+        <div class="name-divider"></div>
+        <div class="name-item">ARIF HIDAYAT</div>
+        <div class="name-divider"></div>
+        <div class="name-item">BAGASKORO</div>
+        <div class="name-divider"></div>
+        <div class="name-item">LAILA PUSPITASARI ANGRRAINI</div>
+        <div class="name-divider"></div>
+        <div class="name-item">M. NURDIN</div>
+        <div class="name-divider"></div>
+        <div class="name-item">PURNOMO</div>
+        <div class="name-divider"></div>
+        <div class="name-item">ROMA DORMAWATY</div>
+        <div class="name-divider"></div>
+        <div class="name-item">SARI KUSUMANINGR UM</div>
+    </div>
+    <div class="right-column">
+        <div class="name-item">SUGIYANTO</div>
+        <div class="name-divider"></div>
+        <div class="name-item">SUKMANOFITH DJULIS</div>
+        <div class="name-divider"></div>
+        <div class="name-item">TITIS ARI WIBOWO</div>
+        <div class="name-divider"></div>
+        <div class="name-item">DIDIK SULISTYO KURNIAWAN</div>
+        <div class="name-divider"></div>
+        <div class="name-item">AGUS LEONARD TOGATOROP</div>
+        <div class="name-divider"></div>
+        <div class="name-item">BRENHARD MANGATUR TAMPUBOLON</div>
+        <div class="name-divider"></div>
+        <div class="name-item">DERMA WATTY SIHOMBING</div>
+        <div class="name-divider"></div>
+        <div class="name-item">MAURITZ HALOMOAN MANONTANG SIBARANI</div>
+        <div class="name-divider"></div>
+        <div class="name-item">ROSNA YUHERLINA SIAHAAN</div>
+        <div class="name-divider"></div>
+        <div class="name-item">ROY KASIONO</div>
+    </div>
+</div>
+
+
+
+<!-- Footer Section -->
+<footer style="margin-top: 50px; background-image: url('assets/FooterBG.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="container" style="height: 450px;">
+        <div class="row gy-4">
+            <!-- Alamat -->
+            <div class="col-md-4" style="margin-right: 10px;">
+                <div class="d-flex">
+                    <img src="assets/FooterLogo.png" alt="Logo" height="50%" style="padding-right: 25px;">
+                    <div>
+                        <h5>STIP Jakarta</h5>
+                        <p>Badan Pengembangan Sumber Daya<br><br>Jl. Marunda Makmur Cilincing, Jakarta Utara, DKI JAKARTA</p>
+                        <div class="social-links mt-4">
+                            <a href="#"><img src="assets/FooterIG.png" alt="Instagram" width="30" style="padding-right: 10px;"></a>
+                            <a href="#"><img src="assets/FooterX.png" alt="Twitter" width="30" style="padding-right: 5px;"></a>
+                            <a href="#"><img src="assets/FooterFb.png" alt="Facebook" width="30" style="padding-right: 2px;"></a>
+                            <a href="#"><img src="assets/FooterYT.png" alt="YouTube" width="30" style="padding-left:3px ;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            <!-- Contact -->
+            <div class="col-md-3" style="margin-right: 30px;">
+                <h5>Contact</h5>
+                <ul class="list-unstyled">
+                    <li><img src="assets/FooterPhone.png" alt="Phone" width="20"> (62-21)8899.1618</li>
+                    <li><img src="assets/FooterPhone.png" alt="Phone" width="20"> (021)8899.1618</li>
+                    <li><img src="assets/FooterTelp.png" alt="Phone" width="20"> (021)44834345</li>
+                    <li><img src="assets/FooterMail.png" alt="Email" width="20"> humas@stipjakarta.ac.id</li>
+                </ul>
+                <p>Customer Service Loket Pendaftaran Diklat:</p>
+                <ul class="list-unstyled">
+                    <li><img src="assets/FooterPhone.png" alt="Phone" width="20"> (62-21)8899.1618</li>
+                    <li><img src="assets/FooterPhone.png" alt="Phone" width="20"> (62-21)8899.1618</li>
+                </ul>
+            </div>
+  
+            <!-- Tentang STIP -->
+            <div class="col-md-2" style="margin-right: 10px;">
+                <h5>Tentang STIP</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Sejarah</a></li>
+                    <li><a href="#">Visi, Misi dan Tujuan</a></li>
+                </ul>
+                <h5>Tautan</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Portal Akademik</a></li>
+                    <li><a href="#">Sistem Informasi Anggaran</a></li>
+                    <li><a href="#">Sistem Kinerja Pegawai</a></li>
+                </ul>
+            </div>
+  
+            <!-- Visitors -->
+            <div class="col-md-2 ms-auto" style="margin-right: 20px;">
+                <h5>Visitors</h5>
+                <p>11 Online now<br>584 Today<br>1,404 Yesterday<br>7,047 Last 7 days<br>36,251 Last 28 days</p>
+                <a href="#">Click Website Analytics</a>
+            </div>
+        </div>
+    </div>
+    <div class="container position-relative">
+        <!-- Garis tengah dan gambar -->
+        <div class="row justify-content-center align-items-center mb-3">
+            <!-- Garis tengah -->
+            <div class="col-12">
+                <div class="middle-line"></div>
+            </div>
+            <!-- Gambar di sebelah kanan garis -->
+            <div class="col-auto position-absolute end-0" style="margin-bottom: 10%;">
+                <img src="assets/FooterBawah1.png" alt="Image 1" class="img-fluid me-2 align-bottom">
+                <img src="assets/FooterBawah2.png" alt="Image 2" class="img-fluid align-bottom">
+            </div>
+        </div>
+        <!-- Teks Copy Right -->
+        <div class="row">
+            <div class="col-12">
+                <p class="copyright-text">© 2023 STIP All rights reserved</p>
+            </div>
+        </div>
+    </div>
+  </footer>
+      <!-- Boostrap JS -->
+      <script src="js/bootstrap.bundle.js"></script>
+      <script>
+        // Header-Search Bar Expand
+document.querySelector('.search-btn').addEventListener('click', function () {
+    const searchContainer = document.querySelector('.search-container');
+    const searchInput = document.querySelector('.search-input');
+    
+    searchContainer.classList.toggle('expanded');
+    
+    if (searchContainer.classList.contains('expanded')) {
+        searchInput.placeholder = "Search..."; 
+        searchInput.focus(); 
+    } else {
+        searchInput.placeholder = "";  
+        searchInput.blur();  
+    }
+});
+// Header-Dropdown Bahasa
+document.querySelectorAll('.dropdown').forEach(function (dropdown) {
+    dropdown.addEventListener('mouseenter', function () {
+        this.querySelector('.dropdown-menu').classList.add('show');
+    });
+
+    dropdown.addEventListener('mouseleave', function () {
+        this.querySelector('.dropdown-menu').classList.remove('show');
+    });
+});
+
+// Semua-Carousel Automatisasi
+var carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleIndicators'), {
+    interval: 200,
+    ride: 'carousel'
+});
+      </script>
+    </body>
+  </html>
