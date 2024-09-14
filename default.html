@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Boostrap CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/defaultstyle.css" rel="stylesheet">
+
+    <!-- Font Google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+    <title>Tentang STIP</title>
+  </head>
+  <style>
+.container-regulasi {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  padding: 20px;
+}
+
+.card {
+  width: 333px;
+  height: 190px;
+  position: relative;
+  background-color: transparent;
+  border: 0px;
+}
+
+.card-inner {
+  width: 325px;
+  height: 182px;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+.card-content {
+  width: 100%;
+  height: 100%;
+  background: white;
+  box-shadow: 10px 10px 16px 10px rgba(0, 0, 0, 0.10);
+  border-radius: 20px;
+  position: relative;
+  padding: 10px;
+}
+
+.card-content::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #04498E;
+  border-radius: 20px;
+  left: 10;
+  top: -10;
+  z-index: -1;
+}
+  </style>
+  <body>
+    <header class="bg-primary py-2">
+      <div class="container">
+          <div class="d-flex justify-content-end align-items-center header-items">
+              <a href="#" class="text-white me-3 text-decoration-none small">SiPITUNG</a>
+              <span class="text-white small">|</span>
+              <a href="#" class="text-white mx-3 text-decoration-none small">FAQ</a>
+              <span class="text-white small">|</span>
+              <div class="search-container mx-3">
+                  <input type="text" class="search-input form-control" placeholder="Search...">
+                  <button class="btn search-btn">
+                      <img src="assets/search bar.png" alt="Search Icon" class="search-icon">
+                  </button>
+              </div>
+              <span class="text-white small">|</span>
+              <div class="dropdown ms-3">
+                  <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle small" id="languageDropdownLang" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="https://flagcdn.com/w20/id.png" alt="Indonesia Flag" width="20" height="20" class="rounded-circle me-2">
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownLang">
+                      <li><a class="dropdown-item" href="#">Bahasa Indonesia</a></li>
+                      <li><a class="dropdown-item" href="#">English</a></li>
+                  </ul>
+              </div>
+      </div>
+  </header>
+  <!-- Section NavBar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+          <a class="navbar-brand" href="#">
+              <img src="assets/Logo.png" alt="Logo" height="80" width="280">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">Tentang</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarTentang.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">Sambutan Ketua</a>
+                                      <a href="#">Visi, Misi & Tujuan</a>
+                                      <a href="#">Profil</a>
+                                      <a href="#">Struktur Organisasi</a>
+                                      <a href="#">Sejarah</a>
+                                      <a href="#">Logo STIP</a>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Profil Manajemen</a>
+                                      <a href="#">Mars & Himne</a>
+                                      <a href="#">Aset STIP</a>
+                                      <a href="#">Piagam Penghargaan</a>
+                                      <a href="#">LAPTAH & LKIP</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">Akademik</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarAkademik.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">Kalender Akademik</a>
+                                      <h3>
+                                          <a href="#">Diploma IV</a>
+                                          <a href="#">Diklat Penjenjangan Keahlian Pelaut(Upgrading)</a>
+                                          <a href="#">Kalender Diklat Pemutakhiran</a>
+                                          <a href="#">Kalender Program Kerjasama</a>
+                                          <a href="#">Diklat Keterampilan Pelaut(ShortCourse)</a>
+                                      </h3>
+                                      <a href="#">Biaya Akademik</a>
+                                      <h3>
+                                          <a href="#">Biaya Diklat Pembentukan Diploma-IV</a>
+                                          <a href="#">Biaya Diklat Penjenjangan Keahlian Pelaut(Upgrading)</a>
+                                          <a href="#">Biaya Diklat Pemutakhiran(Updating)</a>
+                                          <a href="#">Biaya Diklat Keterampilan Pelaut</a>
+                                          <a href="#">Biaya PUKP Pasca Prala</a>
+                                          <a href="#">Biaya Sewa Fasilitas</a>
+                                          <a href="#">Biaya Sewa Fasilitas</a>
+                                          <a href="#">Biaya RPL Tipe A</a>
+                                      </h3>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Dosen STIP</a>
+                                      <a href="#">Clearing in/Clearing Out</a>
+                                      <a href="#">Stampbook Online Paca Prala</a>
+                                      <h3>
+                                          <a href="#">Nautika</a>
+                                          <a href="#">KALK</a>
+                                      </h3>
+                                      <a href="#">PMB Magister Terapan</a>
+                                      <a href="#">Hasil Ujian Keahlian</a>
+                                      <h3>
+                                          <a href="#">Tahun 2021</a>
+                                          <a href="#">Tahun 2022</a>
+                                          <a href="#">Tahun Keahlian</a>
+                                      </h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">Fasilitas</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarFasilitas.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">Gedung STIP Jakarta</a>
+                                      <a href="#">Simulator & Lab</a>
+                                      <a href="#">Kapal Latih</a>
+                                      <a href="#">Bank</a>
+                                      <a href="#">Rumah Ibadah</a>
+                                      <a href="#">Bus Kampus</a>
+                                      <a href="#">Kantin & Ruang Makan</a>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Sarana Olahraga</a>
+                                      <a href="#">Klinik</a>
+                                      <a href="#">Jaringan Internet & Wireless</a>
+                                      <a href="#">Asrama</a>
+                                      <a href="#">Auditorium</a>
+                                      <a href="#">Ruang Audio Visual</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">PPID</a>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">E-Learning</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarE-Learning.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">E-Learning Edlink</a>
+                                      <a href="#">Tutorial SIAKAD</a>
+                                      <a href="#">Tutorial E-Learning Edlink D-IV</a>
+                                      <a href="#">Tutorial E-Learning Edlink Diklat Pelaut</a>
+                                      <a href="#">Rumah Tutorial E-Learning Edlink Peserta RPL</a>
+                                      <a href="#">Bus Kampus</a>
+                                      <a href="#">Kantin & Ruang Makan</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">SIPENCATAR</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarSIPENCATAR.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">SIPENCATAR MANDIRI</a>
+                                      <h3>
+                                          <a href="#">Pendaftaran SIPENCATAR Mandiri</a>
+                                          <a href="#">Panduan Pendaftaran SIPENCATAR Jalur Mandiri</a>
+                                      </h3>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">SIPENCATAR POLA PEMBIBITAN</a>
+                                      <h3>
+                                          <a href="#">Pendaftaran</a>
+                                          <a href="#">Pengumuman</a>
+                                      </h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <div class="nav-divider"></div>
+                  <li class="nav-item dropnav">
+                      <a class="nav-link" href="#">P3M</a>
+                      <div class="dropnav-content">
+                          <div class="dropnav-left">
+                              <img src="assets/NavbarSIPENCATAR.png" alt="Image" class="dropnav-img">
+                          </div>
+                          <div class="dropnav-right">
+                              <div class="dropnav-links">
+                                  <div>
+                                      <a href="#">Pendidikan</a>
+                                      <h3>
+                                          <a href="#">Teknika</a>
+                                          <a href="#">Nautika</a>
+                                          <a href="#">KALK</a>
+                                      </h3>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Penelitian</a>
+                                      <h3>
+                                          <a href="#">Penelitian Tahun 2006</a>
+                                          <a href="#">Penelitian Tahun 2007</a>
+                                          <a href="#">Penelitian Tahun 2009</a>
+                                          <a href="#">Penelitian Tahun 2018</a>
+                                          <a href="#">Penelitian Tahun 2019</a>
+                                      </h3>
+                                  </div>
+                                  <div class="dropnav-divider"></div>
+                                  <div>
+                                      <a href="#">Pengabdian</a>
+                                      <h3>
+                                          <a href="#">Penelitian Tahun 2019</a>
+                                          <a href="#">Penelitian Tahun 2020</a>
+                                          <a href="#">Penelitian Tahun 2023</a>
+                                      </h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <script src="js/dropdown.navbar.js"></script>
+  <!-- Section Headline -->
+  <section class="headpage-section position-relative">
+    <!-- Background Image -->
+    <img src="assets/HeadlineTentang.png" alt="Background Image" class="img-fluid w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover;">
+
+    <!-- Overlay Content -->
+    <div class="container h-100 position-relative">
+        <div class="row h-100">
+            <div class="col-12 d-flex flex-column justify-content-between">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb-links">
+                    <a href="#">Beranda</a> / <a href="#">Tentang STIP</a>
+                </div>
+                <!-- Headline Text -->
+                <div class="headline-text">
+                    <h1 class="headline">Tentang STIP</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section Baru-->
+<div class="container-regulasi">
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-content">
+                <div
+                    style="margin-top: 5%; margin-left: 13%; width: 225px; color: #04498E; font-size: 18px; font-family: Plus Jakarta Sans; font-weight: 500; word-wrap: break-word">
+                    Keputusan Kepala BPSDM</div>
+                <div
+                    style="margin-left: 13%; width: 213px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <div
+                        style="width: 212px; color: black; font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 400; word-wrap: break-word">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. vitae tincidunt dolor.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-content">
+                <div
+                    style="margin-top: 12%; margin-left: 13%; width: 225px; color: #04498E; font-size: 18px; font-family: Plus Jakarta Sans; font-weight: 500; word-wrap: break-word">
+                    Keputusan Ketua STIP</div>
+                <div
+                    style="margin-left: 13%; width: 213px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <div
+                        style="width: 212px; color: black; font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 400; word-wrap: break-word">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. vitae tincidunt dolor.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-content">
+                <div
+                    style="margin-top: 12%; margin-left: 13%; width: 225px; color: #04498E; font-size: 18px; font-family: Plus Jakarta Sans; font-weight: 500; word-wrap: break-word">
+                    Peraturan Kode Etik Pegawai STIP</div>
+                <div
+                    style="margin-left: 13%; width: 213px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <div
+                        style="width: 212px; color: black; font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 400; word-wrap: break-word">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. vitae tincidunt dolor.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!-- Footer Section -->
+<footer style="background-image: url('assets/FooterBG.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <div class="container" style="height: 450px;">
+      <div class="row gy-4">
+          <!-- Alamat -->
+          <div class="col-md-4" style="margin-right: 10px;">
+              <div class="d-flex">
+                  <img src="assets/FooterLogo.png" alt="Logo" height="50%" style="padding-right: 25px;">
+                  <div>
+                      <h5>STIP Jakarta</h5>
+                      <p>Badan Pengembangan Sumber Daya<br><br>Jl. Marunda Makmur Cilincing, Jakarta Utara, DKI JAKARTA</p>
+                      <div class="social-links mt-4">
+                          <a href="#"><img src="assets/FooterIG.png" alt="Instagram" width="30" style="padding-right: 10px;"></a>
+                          <a href="#"><img src="assets/FooterX.png" alt="Twitter" width="30" style="padding-right: 5px;"></a>
+                          <a href="#"><img src="assets/FooterFb.png" alt="Facebook" width="30" style="padding-right: 2px;"></a>
+                          <a href="#"><img src="assets/FooterYT.png" alt="YouTube" width="30" style="padding-left:3px ;"></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-md-3" style="margin-right: 30px;">
+              <h5>Contact</h5>
+              <ul class="list-unstyled">
+                  <li><img src="assets/FooterPhone.png" alt="Phone" width="20"> (62-21)8899.1618</li>
+                  <li><img src="assets/FooterPhone.png" alt="Phone" width="20"> (021)8899.1618</li>
+                  <li><img src="assets/FooterTelp.png" alt="Phone" width="20"> (021)44834345</li>
+                  <li><img src="assets/FooterMail.png" alt="Email" width="20"> humas@stipjakarta.ac.id</li>
+              </ul>
+              <p>Customer Service Loket Pendaftaran Diklat:</p>
+              <ul class="list-unstyled">
+                  <li><img src="assets/FooterPhone.png" alt="Phone" width="20"> (62-21)8899.1618</li>
+                  <li><img src="assets/FooterPhone.png" alt="Phone" width="20"> (62-21)8899.1618</li>
+              </ul>
+          </div>
+
+          <!-- Tentang STIP -->
+          <div class="col-md-2" style="margin-right: 10px;">
+              <h5>Tentang STIP</h5>
+              <ul class="list-unstyled">
+                  <li><a href="#">Sejarah</a></li>
+                  <li><a href="#">Visi, Misi dan Tujuan</a></li>
+              </ul>
+              <h5>Tautan</h5>
+              <ul class="list-unstyled">
+                  <li><a href="#">Portal Akademik</a></li>
+                  <li><a href="#">Sistem Informasi Anggaran</a></li>
+                  <li><a href="#">Sistem Kinerja Pegawai</a></li>
+              </ul>
+          </div>
+
+          <!-- Visitors -->
+          <div class="col-md-2 ms-auto" style="margin-right: 20px;">
+              <h5>Visitors</h5>
+              <p>11 Online now<br>584 Today<br>1,404 Yesterday<br>7,047 Last 7 days<br>36,251 Last 28 days</p>
+              <a href="#">Click Website Analytics</a>
+          </div>
+      </div>
+  </div>
+  <div class="container position-relative">
+      <!-- Garis tengah dan gambar -->
+      <div class="row justify-content-center align-items-center mb-3">
+          <!-- Garis tengah -->
+          <div class="col-12">
+              <div class="middle-line"></div>
+          </div>
+          <!-- Gambar di sebelah kanan garis -->
+          <div class="col-auto position-absolute end-0" style="margin-bottom: 10%;">
+              <img src="assets/FooterBawah1.png" alt="Image 1" class="img-fluid me-2 align-bottom">
+              <img src="assets/FooterBawah2.png" alt="Image 2" class="img-fluid align-bottom">
+          </div>
+      </div>
+      <!-- Teks Copy Right -->
+      <div class="row">
+          <div class="col-12">
+              <p class="copyright-text">© 2023 STIP All rights reserved</p>
+          </div>
+      </div>
+  </div>
+</footer>
+    <!-- Boostrap JS -->
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
